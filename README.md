@@ -1,2 +1,3 @@
 # Desafío grid-template-areas
+se puede mejorar....
 # git page : https://danielmend3z.github.io/Desafio.css.3/
