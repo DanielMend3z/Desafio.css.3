@@ -1,25 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:wght@300;400&display=swap");
 
 * {
-  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+html,
 body {
-  font-family: "Poppins", sans-serif;
-  font-family: "Roboto", sans-serif;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Poppins", "Roboto", sans-serif;
 }
 
 .parent {
   display: grid;
+  box-sizing: border-box;
   grid-template-areas:
     "menu"
     "filtro"
     "productos"
-    "foot";
+    "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 10vh 12vh auto 12vh;
+  grid-template-rows: 5em 6em calc(100vh - 17em) 6em;
   height: 100vh;
 }
 
@@ -31,6 +33,34 @@ body {
   align-items: center;
   color: white;
 }
+.menu-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-title > img {
+  margin-left: 20px;
+  width: 2em;
+  height: 2em;
+}
+.menu-title > h1 {
+  margin-left: 5px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-size: medium;
+}
+.menu > nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu > nav > ul {
+  list-style: none;
+  flex-direction: row;
+  display: none;
+}
 
 .filtro {
   grid-area: filtro;
@@ -40,45 +70,10 @@ body {
   align-items: center;
 }
 
-.productos {
-  grid-area: productos;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  height: calc(100vh -34vh);
-}
-
-.footer {
-  grid-area: foot;
-  background-color: #0f2167;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.menu > img {
-  margin-left: 20px;
-  width: 3em;
-  height: 3em;
-}
-.menu > h1 {
-  margin-left: 5px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-size: larger;
-}
-.menu > nav {
-display: flex;
-flex-direction: row;
-}
-
 .filtro > p {
   text-align: center;
-  margin-top: 12px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: larger;
@@ -89,6 +84,16 @@ flex-direction: row;
   border-radius: 5px;
   height: 3rem;
   width: 70%;
+  margin-bottom: 5px;
+}
+
+.productos {
+  grid-area: productos;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .items {
@@ -96,21 +101,20 @@ flex-direction: row;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  height: 100%;
+  justify-content: center;
+  height: 95%;
 }
 
 .card {
-  width: auto;
+  max-width: 550px;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px solid rgba(66, 64, 64, 0.3);
-  margin-top: 2rem;
+  margin: 1em;
   box-shadow: 5px 5px 10px rgba(66, 64, 64, 0.3);
   border-radius: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
 }
 
 .card > img {
@@ -118,7 +122,6 @@ flex-direction: row;
   width: 90%;
   padding-top: 25px;
   margin-bottom: 30px;
- 
 }
 
 button {
@@ -133,39 +136,41 @@ button {
   border-style: none;
 }
 
-.index {
+.pagina {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
- 
-
 }
-.vista {
+.paginas {
+  background-color: white;
   list-style: none;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  border-radius:5px;
-  border:1px solid gray;
- 
-
+  border-radius: 5px;
+  border: 1px solid gray;
 }
-.vista > li {
+.paginas > li {
   padding: 5px 15px;
   border: 1px solid gray;
- 
-
 }
 
-.vista > li > a {
+.paginas > li > a {
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-
-  
 }
+
+.footer {
+  grid-area: footer;
+  background-color: #0f2167;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 .footer-logo {
   display: flex;
   flex-direction: row;
@@ -174,37 +179,88 @@ button {
   width: 30%;
 }
 .footer-logo > img {
-  width: 26%;
+  width: 3em;
 }
 .footer > p {
-  font-size: x-large;
+  font-size: large;
   margin-top: 5px;
+  text-align: center;
 }
 
+@media (min-width: 576px) {
+  .parent {
+    display: grid;
+    grid-template-areas:
+      "menu menu"
+      "filtro productos "
+      "footer footer ";
+    grid-template-columns: 0.8fr 3fr;
+    grid-template-rows: 6em calc(100vh - 12em) 6em;
+    height: 100vh;
+  }
 
-  @media (min-width: 992px){
-    .parent {
-  display: grid;
-  grid-template-areas:
-    "menu filtro filtro filtro filtro"
-      "menu productos productos productos productos  "
-      "menu productos productos productos productos "
-      "foot productos productos productos productos";
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 10vh 12vh auto 12vh;
-  height: 100vh;
+  .productos {
+    height: calc(100vh - 12em);
+    border: 1px solid black;
+  }
+  .card {
+    max-width: 340px;
+  }
+  .menu {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .menu > nav > ul {
+    display: flex;
+    display: unset;
+    list-style: none;
+  }
+  .menu > nav > ul > li {
+    display: inline-block;
+    margin-right: 20px;
+  }
 }
+
+@media (min-width: 992px) {
+  .parent {
+    display: grid;
+    grid-template-areas:
+      "menu filtro filtro "
+      "menu productos productos"
+      "footer productos productos";
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 6em calc(100vh - 13em) 7em;
+    height: 100vh;
   }
-/*
-@media (min-width: 576px){
-        .container {
-          box-sizing: content-box;
-            grid-template-areas:
-          "header header header"
-          "search main main "
-          "search main main"
-          "search index index "
-          "footer footer footer";
-        }
+  .card {
+    width: 400px;
   }
-  */
+  .menu {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .menu > nav > ul {
+    list-style: none;
+    flex-direction: row;
+    margin-top: 30px;
+    text-align: center;
+    font-size: larger;
+  }
+  .menu > nav > ul > li {
+    display:flex;
+    flex-direction: column;
+    margin-bottom:20px;
+  }
+  .productos {
+    height: 100%;
+    border: 1px solid red;
+  }
+  .items {
+    height: 95%;
+  }
+
+  .menu-title {
+    margin-top: 25px;
+    margin-left: 12px;
+  }
+}
